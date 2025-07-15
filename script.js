@@ -118,20 +118,20 @@ async function drawChart() {
     y: weighted,
     mode: "lines+markers",
     name: "Prognoza uśredniona z uwzględnieniem zmiennego w czasie prawdopodobieństwa scenariuszy",
-    line: { color: "rgba(0,0,0,0.15)", width: 12 },
+    line: { color: "rgba(0,0,0,0.15)", width: 18 },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
 
   const layout = {
     margin: { t: 60, b: 50, l: 60, r: 30 },
     xaxis: {
-      title: "Data",
+      title: "",
       tickformat: "%d %b",
       tickvals: dates,
       ticktext: dates.map(formatDatePol)
     },
     yaxis: {
-      title: "Cena BTC (USD)",
+      title: "USD",
       tickformat: "$,.0f"
     },
     legend: {
