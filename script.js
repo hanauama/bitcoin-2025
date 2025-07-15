@@ -90,7 +90,7 @@ async function drawChart() {
     x: dates,
     y: baseline,
     mode: "lines+markers",
-    name: "Bazowy",
+    name: "Scenariusz bazowy",
     line: { color: "rgba(0,191,255,0.6)" },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
@@ -99,7 +99,7 @@ async function drawChart() {
     x: dates,
     y: optimistic,
     mode: "lines+markers",
-    name: "Optymistyczny",
+    name: "Scenariusz optymistyczny",
     line: { color: "rgba(50,205,50,0.6)" },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
@@ -108,7 +108,7 @@ async function drawChart() {
     x: dates,
     y: pessimistic,
     mode: "lines+markers",
-    name: "Pesymistyczny",
+    name: "Scenariusz pesymistyczny",
     line: { color: "rgba(255,0,0,0.6)" },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
@@ -117,7 +117,7 @@ async function drawChart() {
     x: dates,
     y: weighted,
     mode: "lines+markers",
-    name: "Średnia ważona",
+    name: "Prognoza uśredniona z uwzględnieniem zmiennego w czasie prawdopodobieństwa scenariuszy",
     line: { color: "rgba(0,0,0,0.3)", width: 6 },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
