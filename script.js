@@ -91,7 +91,7 @@ async function drawChart() {
     y: baseline,
     mode: "lines+markers",
     name: "Bazowy",
-    line: { color: "deepskyblue" },
+    line: { color: "rgba(0,191,255,0.6)" },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
 
