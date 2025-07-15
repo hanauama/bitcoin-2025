@@ -79,34 +79,13 @@ async function fetchCurrentPrice() {
   }
 }
 
-// Pobranie historycznych dziennych cen BTC z CoinGecko (ostatnie 180 dni)
-async function fetchHistoricalPrices() {
-  try {
-    const res = await fetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=180&interval=daily');
-    const data = await res.json();
-    // data.prices to tablica [ [timestamp, price], ... ]
-    // Konwersja na datę i cenę
-    return data.prices.map(p => {
-      return {
-        date: new Date(p[0]).toISOString().slice(0,10),
-        price: p[1]
-      };
-    });
-  } catch (e) {
-    console.error("Błąd pobierania historycznych cen BTC:", e);
-    return [];
-  }
-}
-
+// Rysowanie wykresu Plotly
 async function drawChart() {
   const currentPrice = await fetchCurrentPrice();
-  const historicalData = await fetchHistoricalPrices();
 
-  // Tekst z aktualną datą i ceną
   document.getElementById("current-info").textContent =
     `Aktualna data: ${new Date().toLocaleDateString()} | Cena BTC: ${currentPrice ? currentPrice.toLocaleString('pl-PL', {style:'currency', currency:'USD'}) : 'brak danych'}`;
 
-  // Trace dla scenariuszy prognozowanych
   const traceBaseline = {
     x: dates,
     y: baseline,
@@ -138,23 +117,13 @@ async function drawChart() {
     x: dates,
     y: weighted,
     mode: "lines+markers",
-    name: "Prognoza uśredniona",
+    name: "Prognoza uśredniona z uwzględnieniem zmiennego w czasie prawdopodobieństwa scenariuszy",
     line: { color: "rgba(0,0,0,0.3)", width: 8 },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
 
-  // Trace z rzeczywistymi cenami
-  const traceActual = {
-    x: historicalData.map(d => d.date),
-    y: historicalData.map(d => d.price),
-    mode: "lines",
-    name: "Cena rzeczywista BTC",
-    line: { color: "rgba(0,0,0,0.6)", width: 2 },
-    hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
-  };
-
   const layout = {
-    margin: { t: 80, b: 50, l: 60, r: 30 },
+    margin: { t: 60, b: 50, l: 60, r: 30 },
     xaxis: {
       title: "Data",
       tickformat: "%d %b",
@@ -168,15 +137,14 @@ async function drawChart() {
     legend: {
       orientation: "h",
       yanchor: "bottom",
-      y: 1.15,
+      y: 1.1,
       xanchor: "center",
       x: 0.5
     },
     template: "plotly_white"
   };
 
-  // Rysujemy wykres ze wszystkimi pięcioma seriami danych
-  Plotly.newPlot("chart", [traceBaseline, traceOptimistic, tracePessimistic, traceWeighted, traceActual], layout, {responsive: true});
+  Plotly.newPlot("chart", [traceBaseline, traceOptimistic, tracePessimistic, traceWeighted], layout, {responsive: true});
 }
 
 drawChart();
