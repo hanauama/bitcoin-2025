@@ -109,7 +109,7 @@ async function drawChart() {
     y: pessimistic,
     mode: "lines+markers",
     name: "Scenariusz pesymistyczny",
-    line: { color: "rgba(255,0,0,0.6)" },
+    line: { color: "rgba(255,165,0,0.6)" },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
 
