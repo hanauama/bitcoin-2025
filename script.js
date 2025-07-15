@@ -118,7 +118,7 @@ async function drawChart() {
     y: weighted,
     mode: "lines+markers",
     name: "Średnia ważona",
-    line: { color: "rgba(0,0,0,0.6)", width: 4 },
+    line: { color: "rgba(0,0,0,0.8)", width: 6 },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
 
