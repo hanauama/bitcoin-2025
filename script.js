@@ -118,7 +118,7 @@ async function drawChart() {
     y: weighted,
     mode: "lines+markers",
     name: "Prognoza uśredniona z uwzględnieniem zmiennego w czasie prawdopodobieństwa scenariuszy",
-    line: { color: "rgba(0,0,0,0.3)", width: 8 },
+    line: { color: "rgba(0,0,0,0.15)", width: 12 },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
 
