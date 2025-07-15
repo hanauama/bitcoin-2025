@@ -100,7 +100,7 @@ async function drawChart() {
     y: optimistic,
     mode: "lines+markers",
     name: "Optymistyczny",
-    line: { color: "limegreen" },
+    line: { color: "rgba(50,205,50,0.6)" },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
 
@@ -109,7 +109,7 @@ async function drawChart() {
     y: pessimistic,
     mode: "lines+markers",
     name: "Pesymistyczny",
-    line: { color: "red" },
+    line: { color: "rgba(255,0,0,0.6)" },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
 
@@ -118,7 +118,7 @@ async function drawChart() {
     y: weighted,
     mode: "lines+markers",
     name: "Średnia ważona",
-    line: { color: "black", width: 4 },
+    line: { color: "rgba(0,0,0,0.6)", width: 4 },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
 
