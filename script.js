@@ -109,7 +109,7 @@ async function drawChart() {
     y: pessimistic,
     mode: "lines+markers",
     name: "Scenariusz pesymistyczny",
-    line: { color: "rgba(255,120,0,0.6)" },
+    line: { color: "rgba(255,80,0,0.6)" },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
 
@@ -118,7 +118,7 @@ async function drawChart() {
     y: weighted,
     mode: "lines+markers",
     name: "Prognoza uśredniona z uwzględnieniem zmiennego w czasie prawdopodobieństwa scenariuszy",
-    line: { color: "rgba(0,0,0,0.3)", width: 6 },
+    line: { color: "rgba(0,0,0,0.3)", width: 8 },
     hovertemplate: '%{x|%d %B}: %{y}$<extra></extra>'
   };
 
