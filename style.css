@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9f9f9;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#current-info {
+  font-size: 1.1em;
+  margin-top: 5px;
+  color: #555;
+}
+
+#chart {
+  max-width: 900px;
+  margin: 0 auto;
+  height: 600px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9em;
+  color: #666;
+}
